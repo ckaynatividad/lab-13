@@ -1,3 +1,5 @@
+import quests from './quest-data.js';
+
 export function generateUser(formData){
     console.log(formData.get('name'));
 
@@ -35,4 +37,13 @@ export function getUser() {
     if (!parse) return null;
     //const user = parse.name.toUpperCase();
     return parse;
+}
+
+export function questsCompleted(userObject){
+    for (let quest of quests){
+        if (!userObject.completed[quest.id]){
+            return false;
+        }
+    }
+    return true;
 }
