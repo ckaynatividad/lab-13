@@ -21,8 +21,8 @@ const image = document.getElementById('image');
 const description = document.getElementById('description');
 const choiceForm = document.getElementById('choice-form');
 const choices = document.getElementById('choices');
-const result = document.getElementById('result');
 const resultDesc = document.getElementById('result-description');
+const chooseButton = document.getElementById('buttonChoose');
 
 title.textContent = quest.title;
 image.src = quest.image;
@@ -34,16 +34,19 @@ for (let i = 0; i < quest.choices.length; i++) {
     const choiceDOM = createChoice(choice);
     choices.appendChild(choiceDOM);
 }
-console.log(choiceForm);
+// console.log(choiceForm);
 choiceForm.addEventListener('submit', function(event) {
     event.preventDefault();
+    description.classList.add('hide');
+    chooseButton.classList.add('hide');
+    choices.classList.add('hide');
 
     const formData = new FormData(choiceForm);
     
     const choiceId = formData.get('choices');
-    console.log(choiceId);
+    // console.log(choiceId);
     const choice = findById(quest.choices, choiceId);
-    console.log(choice);
+    // console.log(choice);
     const user = getUser();
     
     score(choice, quest.id, user);

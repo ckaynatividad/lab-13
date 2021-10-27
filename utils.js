@@ -1,5 +1,7 @@
+import quests from './quest-data.js';
+
 export function generateUser(formData){
-    console.log(formData.get('name'));
+    // console.log(formData.get('name'));
 
     return {
         completed: {},
@@ -31,8 +33,16 @@ export default findById;
 export function getUser() {
     const json = localStorage.getItem('USER');
     const parse = JSON.parse(json);
-    console.log(parse);
     if (!parse) return null;
     //const user = parse.name.toUpperCase();
     return parse;
+}
+
+export function questsCompleted(userObject){
+    for (let quest of quests){
+        if (!userObject.completed[quest.id]){
+            return false;
+        }
+    }
+    return true;
 }

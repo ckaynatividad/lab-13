@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./quest.css">
     <title>Quest Detail</title>
 </head>
 <body>
-    <header></header>
-    <span id="love"></span>
+    <header>
+    <img id="character" src="">
     <span id="name"></span>
-    <span id="character"></span>
-    <span id="confidence"></span>
-    <h1>Quest Detail</h1>
+    <p>
+    Love: <span id="love"></span></p>
+    Confidence: <span id="confidence"></span>
+    </header>
     <main>
         <h2 id="title"></h2>
         <p>
@@ -21,11 +23,11 @@
         <p id="description"></p>
         <form id="choice-form">
             <p id="choices"></p>
-            <button>choose</button>
+            <button id="buttonChoose">choose</button>
             </form>
             <section id="result">
                 <p id="result-description"></p>
-                <a href="../map"><map name=""></map></a>
+                <a id="map-back" href="../map">back to map</a>
             </section>
     </main>
     <script src="./quest.js" type="module"></script>

@@ -1,0 +1,18 @@
+body {
+    width: 500px;
+    left: 40%;
+    right: 30%;
+    margin: auto;
+    line-height: 30px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+img {
+    width: 85px;
+    height: 80px;
+    border-radius: 50px;
+}
+
+#love, #confidence {
+    font-style: italic;
+}
