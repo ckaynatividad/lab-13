@@ -34,7 +34,7 @@ for (let i = 0; i < quest.choices.length; i++) {
     const choiceDOM = createChoice(choice);
     choices.appendChild(choiceDOM);
 }
-console.log(choiceForm);
+// console.log(choiceForm);
 choiceForm.addEventListener('submit', function(event) {
     event.preventDefault();
     description.classList.add('hide');
@@ -44,9 +44,9 @@ choiceForm.addEventListener('submit', function(event) {
     const formData = new FormData(choiceForm);
     
     const choiceId = formData.get('choices');
-    console.log(choiceId);
+    // console.log(choiceId);
     const choice = findById(quest.choices, choiceId);
-    console.log(choice);
+    // console.log(choice);
     const user = getUser();
     
     score(choice, quest.id, user);
