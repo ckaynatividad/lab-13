@@ -7,11 +7,11 @@ function userProfile() {
     const confidence = document.getElementById('confidence');
     
     const user = getUser();
-console.log(user);
     if (!user) {
         window.location = './';
     }
     name.textContent = user.name;
+    character.src = '../assets/' + user.character + '.jpg';
     love.textContent = user.love;
     confidence.textContent = user.confidence;
 }

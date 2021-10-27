@@ -19,8 +19,15 @@ const noLoveFinal = noLoveMessage[noLoveResult];
 const medLoveFinal = okayLoveMessage[medLoveResult];
 const highLoveFinal = highLoveMessage[highLoveResult];
 
-let story = `The final results of ${user.name}'s first year:`
+let story = `The final results of ${user.name}'s first year:`;
 let message = `${noLoveFinal} ${medLoveFinal} ${highLoveFinal}`;
 
 storyDisplay.textContent = story;
 messageP.textContent = message;
+
+const button = document.getElementById('play-again');
+
+button.addEventListener('click', ()=>{
+    localStorage.removeItem('USER');
+    window.location = '../';
+});

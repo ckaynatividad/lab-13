@@ -1,5 +1,8 @@
+
 import quests from '../quest-data.js';
 import { getUser, questsCompleted } from '../utils.js';
+import completedQuest from './completedQuest.js';
+import createQuestLink from './createQuest.js';
 
 
 const mapLinks = document.getElementById('map-links');
@@ -9,25 +12,16 @@ if (user.love <= -100 || questsCompleted(user)) {
     window.location.replace('../gameover');
 }
 
-for (let quest of quests){
-    if (user.completed[quest.id]){
-        displaySpan(quest);
-    } else {
-        displayLink(quest);
+for (let quest of quests) {
+    let questDisplay = null;
+
+    const completedQuester = user.completed[quest.id];
+
+    if (completedQuester) {
+        questDisplay = completedQuest(quest);
     }
-}
-
-function displayLink(quest){
-    const a = document.createElement('a');
-    a.href = `../quest/?id=${quest.id}`;
-    a.textContent = quest.title;
-
-    mapLinks.appendChild(a);
-}
-
-function displaySpan(quest){
-    const span = document.createElement('span');
-    span.textContent = quest.title;
-
-    mapLinks.appendChild(span);
+    else {
+        questDisplay = createQuestLink(quest);
+    }
+    mapLinks.appendChild(questDisplay);
 }
